@@ -32,6 +32,13 @@ li{
   margin-top: 16px;
 }
 
+/* liの中のinputがcheckされたときに、spanに対してセンをつける */
+/* spanの内、直前の兄弟要素がli input:checkedのものに対してのスタイル */
+li input:checked + span{
+  color: #aaa;
+  text-decoration: line-through;
+}
+
 form{
   display: flex;
   margin-top: 16px;
@@ -41,3 +48,4 @@ form{
 form input{
   flex: 1;
 }
+
