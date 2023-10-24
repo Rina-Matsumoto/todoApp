@@ -32,11 +32,14 @@
   // 追加ボタンが押されたときの処理、todoを引数としてrenderTodoを呼び出す。
   document.querySelector('#add-form').addEventListener('submit', (e)=>{
     e.preventDefault();
+    const input = document.querySelector('#add-form input');
     const todo = {
-      title: document.querySelector('#add-form input').value,
+      title: input.value,
       isCompleted: false,
     }
     renderTodo(todo);
+    input.value = '';
+    input.focus();
   });
 
   
