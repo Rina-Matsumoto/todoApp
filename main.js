@@ -2,12 +2,9 @@
 
 {
   
-  const todos = [
-    {title: 'aaa', isCompleted: false},
-    {title: 'bbb', isCompleted: false},
-    {title: 'ccc', isCompleted: false},
-  ];
 
+
+  // renderTodoは、todoを引数にとり、HTMLの各要素を作成して値を入れる
   const renderTodo = (todo)=>{
     const input = document.createElement('input');
     input.type = 'checkbox';
@@ -32,13 +29,16 @@
 
   }
 
+  // 追加ボタンが押されたときの処理、todoを引数としてrenderTodoを呼び出す。
+  document.querySelector('#add-form').addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const todo = {
+      title: document.querySelector('#add-form input').value,
+      isCompleted: false,
+    }
+    renderTodo(todo);
+  });
 
-  const renderTodos = ()=>{
-    todos.forEach((todo)=>{
-      renderTodo(todo);
-    });
-  };
-  renderTodos();
   
 
 
