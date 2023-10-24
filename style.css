@@ -25,8 +25,16 @@ ul{
   margin: 16px auto;
 }
 
+li{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 16px;
+}
+
 form{
   display: flex;
+  margin-top: 16px;
 }
 
 /* flex-growの短縮形、flexboxの余白をすべてinputに持ってくる */
