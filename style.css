@@ -6,6 +6,12 @@ body{
 
 h1{
   margin: 0;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  border-bottom: 1px solid gray;
+  padding-bottom: 8px;
+  font-size: 20px;
 }
 
 ul{
@@ -16,6 +22,14 @@ ul{
 
 .container{
   width: 400px;
-  background: pink;
   margin: 16px auto;
+}
+
+form{
+  display: flex;
+}
+
+/* flex-growの短縮形、flexboxの余白をすべてinputに持ってくる */
+form input{
+  flex: 1;
 }
