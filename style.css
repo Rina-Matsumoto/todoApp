@@ -42,6 +42,7 @@ li input:checked + span{
 form{
   display: flex;
   margin-top: 16px;
+  
 }
 
 /* flex-growの短縮形、flexboxの余白をすべてinputに持ってくる */
