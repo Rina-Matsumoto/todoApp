@@ -19,6 +19,12 @@
 
     const button = document.createElement('button');
     button.textContent = 'X';
+    button.addEventListener('click', ()=>{
+      if(confirm('Sure?') === false){
+        return;
+      }
+      li.remove();
+    });
 
     const li = document.createElement('li');
     li.appendChild(lavel);
@@ -41,6 +47,8 @@
     input.value = '';
     input.focus();
   });
+
+  
 
   
 
