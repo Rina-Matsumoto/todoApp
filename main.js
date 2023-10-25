@@ -27,6 +27,16 @@
     const input = document.createElement('input');
     input.type = 'checkbox';
     input.checked = todo.isCompleted;
+    // checkboxがクリックされたら、todoのidと一致するもののチェックを反転させる
+    input.addEventListener('change', ()=>{
+      todos.forEach((item)=>{
+        if(item.id === todo.id){
+          item.isCompleted = !item.isCompleted;
+        }
+      });
+    // ローカルストレージの更新
+    localStorage.setItem('todos', JSON.stringify(todos));
+    });
     
 
     const span = document.createElement('span');
@@ -87,6 +97,20 @@
     
     input.value = '';
     input.focus();
+  });
+
+  document.querySelector('#purge').addEventListener('click', ()=>{
+    todos = todos.filter((todo)=>{
+      return todo.isCompleted === false;
+    });
+    // ローカルストレージの更新
+    localStorage.setItem('todos', JSON.stringify(todos));
+    // 一旦すべての項目を削除してから、更新したtodosをもとに再描画する
+    document.querySelectorAll('#todos li').forEach((li)=>{
+      li.remove();
+    });
+    renderTodos();
+
   });
 
 
