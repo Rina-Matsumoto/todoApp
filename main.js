@@ -5,6 +5,7 @@
   // 追加ボタンを押したときに入力値を受け取って表示させる
   // ☓ボタンを押したときに削除する
   // ページを再読込したときに値を保持する（inputの値）
+  // ページを再読込したときに値を保持する（削除した値）
   // ページを再読込したときに値を保持する（checkboxの値）
   // チェックされたものをリセットボタンでまとめて削除する
 
@@ -42,6 +43,12 @@
         return;
       }
       li.remove();
+      // todosから選択されたidと一致しないものだけを抽出して、新しい配列を作る
+      todos = todos.filter((item)=>{
+        return item.id !== todo.id;
+      });
+      // ローカルストレージの更新
+      localStorage.setItem('todos', JSON.stringify(todos));
     });
 
     const li = document.createElement('li');
@@ -65,6 +72,7 @@
     e.preventDefault();
     const input = document.querySelector('#add-form input');
     const todo = {
+      id: Date.now(),
       title: input.value,
       isCompleted: false,
     }
@@ -72,7 +80,7 @@
     renderTodo(todo);
 
     // ここからローカルストレージのための処理
-    // 配列todosに追加する
+    // 配列todosにtodoオブジェクトを追加する
     todos.push(todo);
     // ローカルストレージの更新
     localStorage.setItem('todos', JSON.stringify(todos));
